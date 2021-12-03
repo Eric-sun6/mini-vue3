@@ -1,5 +1,7 @@
 import { isObject, isReactive } from '../utils/index';
 import { track, trigger } from './effect'
+
+const proxyMap = new WeakMap()
 export function reactive (target) {
 
   if (!isObject(target)) {
@@ -11,7 +13,6 @@ export function reactive (target) {
   if (proxyMap.has(target)) {
     return proxyMap.get(target)
   }
-  const proxyMap = new WeakMap()
   const proxy = new Proxy(target, {
     get (target, key, receiver) {
       if (key === '__isreactived') {
