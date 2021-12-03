@@ -11,8 +11,8 @@ export function reactive (target) {
       const res = Reflect.get(target, key, receiver)
       return res
     }, set (target, key, value, receiver) {
+      const res = Reflect.set(target, key, value, receiver)
       trigger(target, key)
-      const res = Reflect.set(target, key, receiver)
       return res
     }
   })
