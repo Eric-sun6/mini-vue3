@@ -6,10 +6,10 @@ module.exports = {
   mode: 'development',
   devtool: false,
   // devtool: 'inline-cheap-source-map',
-  entry: './src/index.js',
+  entry: path.resolve(srcPath, 'index'),
   output: {
     filename: 'mini-vue.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: distPath,
     clean: true,
     // library: 'MiniVue',
     // libraryTarget: 'umd'

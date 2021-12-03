@@ -14,7 +14,7 @@ export function effect (fn) {
       activeEffect = effectFn;
       return fn();
     } finally {
-
+      activeEffect = undefined
     }
   }
   effectFn();
