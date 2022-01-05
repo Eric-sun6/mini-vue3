@@ -1,12 +1,12 @@
 
-import { reactive } from './reactive/reactive';
-import { effect } from './reactive/effect';
-const observed = (window.observed = reactive({ count: 0 }))
-// const observed = (window.observed = reactive(reactive({ count: 0 }))) // 测试多次嵌套执行reactive方法
+// import { reactive } from './reactive/reactive';
+// import { effect } from './reactive/effect';
+// const observed = (window.observed = reactive({ count: 0 }))
+// // const observed = (window.observed = reactive(reactive({ count: 0 }))) // 测试多次嵌套执行reactive方法
 
-effect(() => {
-  console.log('observed count is: ' + observed.count)
-})
+// effect(() => {
+//   console.log('observed count is: ' + observed.count)
+// })
 
 
 
@@ -130,6 +130,7 @@ effect(() => {
 //   return result
 // };
 // reverse(123)
+// 两个整数转换，需要移动的位数
 // const convertInteger = (A, B) => {
 //   let n = A ^ B;
 //   let count = 0;
@@ -142,3 +143,32 @@ effect(() => {
 //   return count;
 // };
 // convertInteger(2, 3)
+// 两数之和
+
+// var twoSum = function (nums, target) {
+//   let left = 0;
+//   while (left < nums.length) {
+//     if (nums[left] === target) return left;
+//     for (let right = left + 1; right <= nums.length; right++) {
+//       if (nums[left] + nums[right] === target) {
+//         return [left, right]
+//       }
+//     }
+//     left += 1
+//   }
+// };
+// const d = twoSum([6, 2, 3, 4, 5], 6);
+// console.log(d)
+var isPalindrome = function (s) {
+  s = s.match(/[a-zA-Z0-9]/g).join('').toLowerCase();
+  // console.log(s)
+  var mid = Math.floor(s.length / 2);
+  // console.log(mid)
+  for (let i = 0; i <= mid; i++) {
+    let toBeComparedNum = s.length - 1 - i;
+    if (s[i] !== s[toBeComparedNum]) {
+      return false
+    }
+  }
+  return true
+}; var d = isPalindrome("A man, a plan, a 2c1anal: Panama"); console.log(d)
